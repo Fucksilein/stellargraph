@@ -1,0 +1,63 @@
+[tool.poetry]
+# Project metadata
+name = "stellargraph"
+version = "1.3.0"
+description = "Python library for machine learning on graphs"
+authors = ["Data61, CSIRO"]
+license = "Apache 2.0"
+
+
+# Dependencies
+[tool.poetry.dependencies]
+python = ">=3.8.13, <3.11.0"
+numpy=">=1.14"
+scipy=">=1.1.0"
+networkx=">=2.2"
+scikit_learn=">=0.20"
+matplotlib="^3.5"
+pandas="^2.0.0"
+
+[tool.poetry.group.tensorflow.dependencies]
+tensorflow = {version = ">=2.10.0, <2.11.0", markers = "sys_platform != 'darwin' or platform_machine != 'arm64'"}
+tensorflow-macos = {version = ">=2.10.0, <2.11.0", markers = "sys_platform == 'darwin' and platform_machine == 'arm64' "}
+tensorflow-metal = {version = "0.6.0", markers = "sys_platform == 'darwin' and platform_machine == 'arm64' "}
+langchain-community = "^0.0.15"
+tensorflow-io = "0.34.0"
+
+
+[tool.poetry.group.demos]
+optional = true
+[tool.poetry.group.demos.dependencies]
+numba = "*"
+jupyter = "*"
+seaborn = "*"
+rdflib = "*"
+mplleaflet = "0.0.5"
+gensim = ">=4.0.0"
+
+[tool.poetry.group.igraph]
+optional = true
+[tool.poetry.group.igraph.dependencies]
+python-igraph = "*"
+
+
+[tool.poetry.group.neo4j]
+optional = true
+[tool.poetry.group.neo4j.dependencies]
+py2neo = "*"
+
+[tool.poetry.group.test]
+optional = true
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+pytest-benchmark = ">=3.1"
+pytest-cov = "^4.0.0"
+treon = ">=0.1.2"
+papermill = ">=2.0.0"
+rdflib = "*"
+commonmark = "0.9.1"
+
+# Development dependencies (convenience for editable installs)
+[tool.poetry.group.dev.dependencies]
+setuptools = ">=39.1.0"
+
