@@ -1,7 +1,7 @@
 [tool.poetry]
 # Project metadata
 name = "stellargraph"
-version = "1.3.0"
+version = "1.3.0b"
 description = "Python library for machine learning on graphs"
 authors = ["Data61, CSIRO"]
 license = "Apache 2.0"
