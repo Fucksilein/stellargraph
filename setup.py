@@ -111,7 +111,7 @@ setuptools.setup(
     python_requires=">=3.10.0, <3.12.0",
     install_requires=REQUIRES,
     extras_require=EXTRAS_REQUIRES,
-    packages=setuptools.find_packages(exclude=("tests",)),
+    packages=setuptools.find_packages(exclude=("tests","demos","docker")),
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
