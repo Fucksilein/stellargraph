@@ -13,7 +13,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+import itertools
 import os
 import sys
 
@@ -71,18 +71,16 @@ EXTRAS_REQUIRES = {
     "igraph": ["python-igraph"],
     "neo4j": ["py2neo"],
     "test": [
-        "pytest==5.3.1",
+        "pytest>=7.4.0",
         "pytest-benchmark>=3.1",
-        "pytest-cov>=2.6.0",
-        "coverage>=4.4,<5.0",
-        "black>=19.3b0",
-        "nbconvert>=5.5.0",
+        "pytest-cov>=4.0.0",
         "treon>=0.1.2",
         "papermill>=2.0.0",
         "rdflib",
         "commonmark==0.9.1",
     ],
 }
+
 
 # Long description
 try:
