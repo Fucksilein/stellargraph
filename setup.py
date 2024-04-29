@@ -14,23 +14,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import setuptools
 import os
+import sys
+
+import setuptools
 
 DESCRIPTION = "Python library for machine learning on graphs"
 URL = "https://github.com/stellargraph/stellargraph"
 
-# Required packages
-# full tensorflow is too big for readthedocs's builder
-tensorflow = (
-    "tensorflow-cpu"
-    if "READTHEDOCS" in os.environ
-    else "tensorflow"
-    if os.name != "posix" or os.uname().machine != "arm64"
-    else "tensorflow-macos"
-)
-REQUIRES = [
-    f"{tensorflow}>=2.1.0",
+
+def get_tensorflow_requirement():
+    """ """
+    required_packages = ["tensorflow-io==0.34.0"]
+    tf_base_version_range = ">=2.10.0, <2.11.0"
+    if sys.platform == "darwin" and os.uname().machine == "arm64":
+        required_packages.append(f"tensorflow-macos{tf_base_version_range}")
+        required_packages.append("tensorflow-metal==0.6.0")
+    elif "READTHEDOCS" in os.environ:
+        # full tensorflow is too big for readthedocs's builder
+        required_packages.append(f"tensorflow-cpu{tf_base_version_range}")
+    else:
+        required_packages.append(f"tensorflow{tf_base_version_range}")
+    return required_packages
+
+
+REQUIRES = get_tensorflow_requirement()
+REQUIRES += [
     "numpy>=1.14",
     "scipy>=1.1.0",
     "networkx>=2.2",
@@ -38,6 +47,7 @@ REQUIRES = [
     "matplotlib>=2.2",
     "pandas>=0.24",
 ]
+
 
 # The demos requirements are as follows:
 #
