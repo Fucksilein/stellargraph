@@ -29,11 +29,8 @@ __all__ = [
     "StellarDiGraph",
     "StellarGraph",
     "GraphSchema",
-    "__version__",
 ]
 
-# Version
-from .version import __version__
 
 # Import modules
 from stellargraph import (
