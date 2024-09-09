@@ -60,6 +60,9 @@ papermill = ">=2.0.0"
 rdflib = "*"
 commonmark = "0.9.1"
 
+[tool.setuptools]
+packages = ["stellargraph"]
+
 # Development dependencies (convenience for editable installs)
 [tool.poetry.group.dev.dependencies]
 setuptools = ">=39.1.0"
